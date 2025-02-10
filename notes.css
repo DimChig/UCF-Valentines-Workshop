@@ -12,7 +12,7 @@ body {
     justify-content: center;
 }
 
-.container {
+#container {
     position: relative;
 }
 
@@ -88,7 +88,6 @@ body {
     top: -106px;    
     z-index: -10;
     filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 30%));            
-    
 }
 
 #unfold .triangle {
@@ -105,7 +104,7 @@ body {
     filter: drop-shadow(0px 0px 8px rgba(0, 0, 0, 20%));            
 }
 
-#card img {
+#card img { /* #card div (first time) */
     width: 85%;
     height: 85%;
     background-color: white;  
