@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentines Card Practise</title>      
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="container">
+        <div id="heart">
+            <img src="heart.png">
+        </div>
+        <div class="envelope" onclick="toggleCard()">
+            <div id="unfold">
+                <div class="triangle"></div>    
+            </div>
+            <div id="card">
+                <img src="card.png">
+            </div>
+            <div class="wrapper">
+                <div class="left"></div>       
+                <div class="right"></div>       
+                <div class="bottom">
+                    <div class="triangle"></div>
+                </div>       
+            </div>
+            <div id="message">1 MESSAGE - DESIGN & CODE X GIRLS WHO CODE</div>
+        </div>
+    </div>
+</body>
+<script>
+
+    var isOpened = false;
+
+    function toggleCard() {
+        if (!isOpened) openCard();
+        else closeCard();  
+        isOpened = !isOpened;
+    }
+
+    function openCard() {
+        let unfold = document.getElementById("unfold");           
+        unfold.style.zIndex = -10;
+        unfold.style.transform = "rotateX(0deg)";
+        
+        let card = document.getElementById("card");   
+        card.style.top = "-130px";        
+        
+        let heart = document.getElementById("heart");
+        heart.style.opacity = 0;
+
+        let message = document.getElementById("message");
+        message.style.opacity = 0;
+    } 
+    
+    function closeCard() {
+        let card = document.getElementById("card");   
+        card.style.top = "0px";    
+        
+        setTimeout(function () {
+            let unfold = document.getElementById("unfold");           
+            unfold.style.zIndex = 10;
+            unfold.style.transform = "rotateX(180deg)";
+            
+            let heart = document.getElementById("heart");
+            heart.style.opacity = 1;
+    
+            let message = document.getElementById("message");
+            message.style.opacity = 1;
+        }, 1100);
+        
+    }   
+</script>
+</html>
