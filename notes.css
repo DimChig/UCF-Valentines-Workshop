@@ -1,0 +1,194 @@
+/* CREATE FOLDER /*
+/* UNPACK ARCHIVE */
+/* EXTENSION "LIVE SERVER" */
+
+
+body {
+    width: 100%;
+    height: 100vh;
+    margin: 0px;
+    display: flex;
+    place-items: center;
+    justify-content: center;
+}
+
+.container {
+    position: relative;
+}
+
+.envelope {
+    position: relative;
+    width: 300px;
+    height: 200px;
+    background-color: #ff9aba; /* EXPLAIN HEX */
+}
+
+.wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.left {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #ffb4cc;    
+    clip-path: polygon(0 0, 100% 100%, 0 100%);
+}
+
+.right {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #f589ac;    
+    clip-path: polygon(100% 0, 100% 100%, 0 100%);
+}
+
+/* BOTTOM */
+
+.bottom {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.triangle {
+    position: relative;
+    width: 212px;
+    height: 212px;
+    background-color: red;
+    left: 44px;
+    transform: rotate(45deg);
+    clip-path: polygon(0 100%, 0 0, 100% 0);
+}   
+
+.bottom { /* + */
+    top: 94px;
+    transform: scaleY(85%);
+}
+
+.triangle { /* + */
+    border-top-left-radius: 30px;
+    background-color: #f983ab;
+}
+
+/* SHADOWS */
+.bottom { /* + */
+    filter: drop-shadow(2px 0px 4px rgba(0, 0, 0, 20%));
+}
+
+.wrapper { /* + */
+    filter: drop-shadow(0px 0px 8px rgba(0, 0, 0, 30%));
+}
+
+/* UNFOLD */
+#unfold {
+    position: absolute;
+    top: -106px;    
+    z-index: -10;
+    filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 30%));            
+    
+}
+
+#unfold .triangle {
+    background-color: #ff9aba    
+}
+
+/* CARD */
+#card {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0px;
+    display: flex;
+    filter: drop-shadow(0px 0px 8px rgba(0, 0, 0, 20%));            
+}
+
+#card img {
+    width: 85%;
+    height: 85%;
+    background-color: white;  
+    margin: auto;    
+}
+
+/* PREPARE FOR JS */
+.envelope { /* + */
+    cursor: pointer;
+}
+#unfold { /* + */
+    z-index: 10;
+    transform: rotateX(180deg); 
+}
+
+/* WRITE JS CODE (UNFOLD ONLY) */
+
+#unfold { /* + */
+    transition: 0.7s;
+}
+
+#container:hover {
+    transform: scale(101%);
+    filter: saturate(105%);
+}
+#container { /* + */
+    transition: 0.3s;
+}
+
+/* WRITE JS CODE (CARD UP) */
+#card { /* + */
+    transition: 1.5s ease-in-out;
+}
+
+/* REPLACE #card div -> img */
+
+/* HEART POPUP */
+
+#heart {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    transition: 0.2s;    
+}
+
+#heart img {
+    position: relative;
+    width: 80px;    
+    margin: auto;    
+    animation: bounce 1s infinite alternate ease-in-out;
+}
+
+@keyframes bounce {
+    0% {
+        top: -160px;    
+    } 
+    100% {
+        top: -170px;
+    }
+}
+
+/* BOTTOM TEXT */
+
+@font-face {
+    font-family: "Two-of-Hearts";   
+    src: url("Two-of-Hearts.ttf");
+}
+
+body { /* + */
+    font-family: "Two-of-Hearts";
+}
+
+#message {
+    position: absolute;
+    top: 230px;
+    white-space: nowrap;    
+    left: 50%;
+    transform: translate(-50%);
+    font-size: 14px;
+    text-align: center;
+    color: #f983ab;
+    transition: 0.3s;
+}
+
+/* WRITE JS FOR #HEART AND #MESSAGE */
